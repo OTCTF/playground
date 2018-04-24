@@ -1,0 +1,16 @@
+version: '2'
+services:
+  playground:
+    image: otctf/default
+    container_name: playground
+    command: /bin/bash
+    network_mode: host
+    volumes:
+      - ./qs:/home/qs
+    #
+    # if you want to use the instance as a remote
+    # you can use port mapping like this
+    #
+
+    # ports:
+    # - 11015:11015
