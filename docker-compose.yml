@@ -3,14 +3,13 @@ services:
   playground:
     image: otctf/default
     container_name: playground
-    network_mode: host
     command: bash
     tty: true
+    security_opt:
+      - seccomp=unconfined  # make debug server working
     volumes:
       - ./qs:/home/qs
-    #
-    # if you want to use the instance as a remote
-    # you can use port mapping like this
-    #
-    # ports:
-    # - 11015:11015
+      - ./dbgsvr-6.8:/home/dbgsvr-6.8
+    ports:
+      - 23946:23946   # dbg server port
+    # network_mode: host   # conflict with port forward
