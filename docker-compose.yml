@@ -1,9 +1,10 @@
 version: '2'
 services:
   playground:
-    image: otctf/default
+    image: otctf/default:latest
     container_name: playground
-    command: bash
+    command: /bin/bash
+    privileged: true
     tty: true
     security_opt:
       - seccomp=unconfined  # make debug server working
