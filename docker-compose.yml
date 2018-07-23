@@ -10,8 +10,8 @@ services:
       - seccomp=unconfined  # make debug server working
     volumes:
       - ./qs:/home/qs
-      - ./dbgsvr-6.8:/home/dbgsvr-6.8
-      - ./dbgsrv-7.0:/home/dbgsvr-7.0
+      - ./qemu:/home/qemu
+      - ./dbgsvr-7.0:/home/dbgsvr-7.0
     ports:
       - 23946:23946   # dbg server port
     # network_mode: host   # conflict with port forward
