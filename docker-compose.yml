@@ -1,7 +1,7 @@
 version: '2'
 services:
   playground:
-    image: otctf/env:16.04
+    image: otctf/env:all-16.04
     container_name: playground
     command: /bin/bash
     privileged: true

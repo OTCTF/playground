@@ -4,7 +4,12 @@ cd `dirname $0`
 THIS_DIR=`pwd`
 
 _enter() {
-    docker exec -it `docker ps | grep 'otctf/default:latest' | awk '{print $1}'` /bin/bash
+    count=$(docker ps | grep 'otctf/env' | awk '{print NR}')
+    if [ "$count" != "1" ]; then
+      echo -e "\033[31mONLY ONE RUNNING OTCTF/ENV IS ALLOWED!\033[0m"
+      exit 1
+    fi
+    docker exec -it `docker ps | grep 'otctf/env' | awk '{print $1}'` /bin/bash
 }
 
 start() {
